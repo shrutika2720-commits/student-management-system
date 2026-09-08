@@ -1,4 +1,4 @@
-# Student Management System (AAI LAB - CCA1)
+# Student Management System 
 
 This repository contains a starter Django project for the Student Management System assignment with a students app that implements full CRUD for a Student model.
 
