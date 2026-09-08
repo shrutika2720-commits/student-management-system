@@ -1,7 +1,17 @@
 {% extends 'students/base.html' %}
 {% block title %}Students{% endblock %}
 {% block content %}
-  <h1>Students</h1>
+  <header style="display:flex; justify-content:space-between; align-items:center">
+    <h1>Students</h1>
+    <div>
+      {% if user.is_authenticated %}
+        Hello, {{ user.username }} | <a href="{% url 'accounts:logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'accounts:login' %}">Login</a> | <a href="{% url 'accounts:signup' %}">Sign up</a>
+      {% endif %}
+    </div>
+  </header>
+
   <p><a href="{% url 'students:student-add' %}">Add new student</a></p>
   <ul>
     {% for student in object_list %}
