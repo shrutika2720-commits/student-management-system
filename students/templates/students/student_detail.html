@@ -1,0 +1,16 @@
+{% extends 'students/base.html' %}
+{% block title %}Student Detail{% endblock %}
+{% block content %}
+  <h1>{{ object.first_name }} {{ object.last_name }}</h1>
+  <p>Roll No: {{ object.roll_no }}</p>
+  <p>Email: {{ object.email }}</p>
+  <p>Course: {{ object.course }}</p>
+  <p>DOB: {{ object.date_of_birth }}</p>
+  <p>Enrollment: {{ object.enrollment_date }}</p>
+  <p>Active: {{ object.is_active }}</p>
+  <p>
+    <a href="{% url 'students:student-edit' object.pk %}">Edit</a> |
+    <a href="{% url 'students:student-delete' object.pk %}">Delete</a> |
+    <a href="{% url 'students:student-list' %}">Back to list</a>
+  </p>
+{% endblock %}

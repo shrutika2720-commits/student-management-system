@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Students{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'students:student-list' %}">Students</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

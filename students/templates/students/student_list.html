@@ -1,0 +1,22 @@
+{% extends 'students/base.html' %}
+{% block title %}Students{% endblock %}
+{% block content %}
+  <h1>Students</h1>
+  <p><a href="{% url 'students:student-add' %}">Add new student</a></p>
+  <ul>
+    {% for student in object_list %}
+      <li>
+        <a href="{{ student.get_absolute_url }}">{{ student.roll_no }} - {{ student.first_name }} {{ student.last_name }}</a>
+      </li>
+    {% empty %}
+      <li>No students yet.</li>
+    {% endfor %}
+  </ul>
+  {% if is_paginated %}
+    <div>
+      {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}">Prev</a>{% endif %}
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
